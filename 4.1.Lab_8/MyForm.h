@@ -45,7 +45,7 @@ namespace My41Lab8 {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
-	private: System::Windows::Forms::Button^ button4;
+
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 	private:
@@ -61,6 +61,7 @@ namespace My41Lab8 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
@@ -68,7 +69,6 @@ namespace My41Lab8 {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -137,22 +137,13 @@ namespace My41Lab8 {
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
-			// button4
-			// 
-			this->button4->Location = System::Drawing::Point(526, 355);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(92, 30);
-			this->button4->TabIndex = 7;
-			this->button4->Text = L"button4";
-			this->button4->UseVisualStyleBackColor = true;
-			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
-			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(472, 130);
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(509, 97);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(196, 198);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox1->Size = System::Drawing::Size(468, 279);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 8;
 			this->pictureBox1->TabStop = false;
 			// 
@@ -160,9 +151,8 @@ namespace My41Lab8 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(802, 466);
+			this->ClientSize = System::Drawing::Size(1163, 524);
 			this->Controls->Add(this->pictureBox1);
-			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
@@ -226,8 +216,6 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	// Виводимо результат у вікно повідомлень
 	MessageBox::Show(sum.ToString());
 }
-private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-	pictureBox1->Image = Image::FromFile("rrr.gif");
-}
+
 };
 }
